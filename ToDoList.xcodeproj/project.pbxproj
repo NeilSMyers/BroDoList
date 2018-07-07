@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		438AC2D120F083D2009BA298 /* TDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438AC2D020F083D2009BA298 /* TDLabel.swift */; };
 		43D04F5620EE722300E25358 /* TDGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D04F5520EE722300E25358 /* TDGradient.swift */; };
 		43D04F5920EE7BCD00E25358 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D04F5820EE7BCD00E25358 /* extension.swift */; };
 		43DBD98620EB63170067C66D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DBD98520EB63170067C66D /* AppDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		438AC2D020F083D2009BA298 /* TDLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDLabel.swift; sourceTree = "<group>"; };
 		43D04F5520EE722300E25358 /* TDGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDGradient.swift; sourceTree = "<group>"; };
 		43D04F5820EE7BCD00E25358 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		43DBD98220EB63170067C66D /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		438AC2CF20F08372009BA298 /* custom */ = {
+			isa = PBXGroup;
+			children = (
+				43D04F5520EE722300E25358 /* TDGradient.swift */,
+				438AC2D020F083D2009BA298 /* TDLabel.swift */,
+			);
+			path = custom;
+			sourceTree = "<group>";
+		};
 		43D04F5720EE7BAC00E25358 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +77,7 @@
 		43DBD98420EB63170067C66D /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				438AC2CF20F08372009BA298 /* custom */,
 				43D04F5720EE7BAC00E25358 /* Extension */,
 				43DBD98520EB63170067C66D /* AppDelegate.swift */,
 				43DBD98720EB63170067C66D /* WelcomeController.swift */,
@@ -73,7 +85,6 @@
 				43DBD99120EB63180067C66D /* LaunchScreen.storyboard */,
 				43DBD99420EB63180067C66D /* Info.plist */,
 				43DBD98C20EB63170067C66D /* ToDoList.xcdatamodeld */,
-				43D04F5520EE722300E25358 /* TDGradient.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -152,6 +163,7 @@
 				43D04F5620EE722300E25358 /* TDGradient.swift in Sources */,
 				43DBD98E20EB63170067C66D /* ToDoList.xcdatamodeld in Sources */,
 				43D04F5920EE7BCD00E25358 /* extension.swift in Sources */,
+				438AC2D120F083D2009BA298 /* TDLabel.swift in Sources */,
 				43DBD98620EB63170067C66D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
