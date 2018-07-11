@@ -24,6 +24,9 @@ class WelcomeController: UIViewController {
         label.numberOfLines = 2
         return label
     }()
+    
+    let copyright = TDLabel(title: "© 2018 | WatchFoxWare", color: .grayZero, size: 14, textAlign: .center)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -47,6 +50,11 @@ class WelcomeController: UIViewController {
         infoLabel.centerXAnchor.constraint(equalTo: bg.centerXAnchor).isActive = true
         infoLabel.centerYAnchor.constraint(equalTo: bg.centerYAnchor).isActive = true
         
+        view.addSubview(copyright)
+        copyright.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        copyright.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        copyright.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        copyright.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
     }
 
 }
