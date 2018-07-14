@@ -29,8 +29,20 @@ class WelcomeController: UIViewController {
     
     let copyright = TDLabel(title: "© 2018 | WatchFoxWare", color: .grayOne, size: 14, textAlign: .center)
     
+    @objc func handleNext() {
+        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+            self.nextButton.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        }) { (_) in
+            UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
+                self.nextButton.transform = CGAffineTransform(scaleX: 1, y: 1)
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nextButton.addTarget(self, action: #selector(self.handleNext), for: [.touchUpInside, .touchUpOutside])
       
         view.backgroundColor = .white
         
@@ -54,7 +66,7 @@ class WelcomeController: UIViewController {
         
         bg.addSubview(nextButton)
         nextButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        nextButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        nextButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         nextButton.centerXAnchor.constraint(equalTo: bg.centerXAnchor).isActive = true
         nextButton.bottomAnchor.constraint(equalTo: bg.bottomAnchor, constant: -60).isActive = true
         

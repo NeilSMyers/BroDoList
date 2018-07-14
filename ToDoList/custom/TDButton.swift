@@ -24,7 +24,7 @@ class TDButton: UIButton {
     func phaseTwo() {
         self.setTitle(self.title, for: .normal)
         self.setTitleColor(.grayZero, for: .normal)
-        self.layer.cornerRadius = 30
+        self.layer.cornerRadius = 25
         self.backgroundColor = .white
         if let titleLabel = self.titleLabel {
             titleLabel.font = UIFont(name: "Raleway-v4020-Regular", size: 16)
