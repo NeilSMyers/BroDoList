@@ -25,7 +25,7 @@ class WelcomeController: UIViewController {
         return label
     }()
     
-    let nextButton:UIButton = TDButton(title: "START WINNING")
+    let nextButton:UIButton = TDButton(title: "START WINNING", type: .roundedText)
     
     let copyright = TDLabel(title: "© 2018 | WatchFoxWare", color: .grayOne, size: 14, textAlign: .center)
     
@@ -35,7 +35,9 @@ class WelcomeController: UIViewController {
         }) { (_) in
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
                 self.nextButton.transform = CGAffineTransform(scaleX: 1, y: 1)
-            })
+            }) { (_) in
+                self.present(ListController(), animated: true, completion: nil)
+            }
         }
     }
     
@@ -78,4 +80,3 @@ class WelcomeController: UIViewController {
     }
 
 }
-
