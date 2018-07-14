@@ -13,7 +13,7 @@ class WelcomeController: UIViewController {
     let bg:UIView = {
         let view = TDGradient()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 24
         return view
     }()
     
@@ -25,7 +25,9 @@ class WelcomeController: UIViewController {
         return label
     }()
     
-    let copyright = TDLabel(title: "© 2018 | WatchFoxWare", color: .grayZero, size: 14, textAlign: .center)
+    let nextButton:UIButton = TDButton(title: "START WINNING")
+    
+    let copyright = TDLabel(title: "© 2018 | WatchFoxWare", color: .grayOne, size: 14, textAlign: .center)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,12 @@ class WelcomeController: UIViewController {
         infoLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
         infoLabel.centerXAnchor.constraint(equalTo: bg.centerXAnchor).isActive = true
         infoLabel.centerYAnchor.constraint(equalTo: bg.centerYAnchor).isActive = true
+        
+        bg.addSubview(nextButton)
+        nextButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        nextButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        nextButton.centerXAnchor.constraint(equalTo: bg.centerXAnchor).isActive = true
+        nextButton.bottomAnchor.constraint(equalTo: bg.bottomAnchor, constant: -60).isActive = true
         
         view.addSubview(copyright)
         copyright.widthAnchor.constraint(equalToConstant: 200).isActive = true
