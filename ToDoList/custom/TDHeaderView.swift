@@ -14,6 +14,7 @@ class TDHeaderView:UIView {
     let titleLabel = TDLabel(size: 14)
     let subTitleLabel = TDLabel(size: 24)
     let addButton = TDButton(title: "+", type: .squareIcon)
+    var delegate:TDHeaderDelegate?
     
     init(frame: CGRect = .zero, title:String = "header title", subtitle:String = "header subtitle") {
         super.init(frame: frame)
@@ -48,6 +49,14 @@ class TDHeaderView:UIView {
         addButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -28).isActive = true
         addButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
         addButton.widthAnchor.constraint(equalTo: addButton.heightAnchor, multiplier: 1).isActive = true
+        
+        addButton.addTarget(self, action: #selector(self.handleAddButton), for: .touchUpInside)
+    }
+    
+    @objc func handleAddButton() {
+        if let delegate = self.delegate {
+            delegate.addItem()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

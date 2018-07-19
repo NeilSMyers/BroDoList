@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4343F47A20F9B1F400E49D90 /* TDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4343F47920F9B1F400E49D90 /* TDButton.swift */; };
 		438AC2D120F083D2009BA298 /* TDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438AC2D020F083D2009BA298 /* TDLabel.swift */; };
+		43A7D47320FEE99A008A77E1 /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A7D47220FEE99A008A77E1 /* protocol.swift */; };
 		43B179BF20FA9E6F006E1565 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B179BE20FA9E6F006E1565 /* ListController.swift */; };
 		43B179C120FA9FDC006E1565 /* TDHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B179C020FA9FDC006E1565 /* TDHeaderView.swift */; };
 		43B179C420FAA75C006E1565 /* optionset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B179C320FAA75C006E1565 /* optionset.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		4343F47920F9B1F400E49D90 /* TDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDButton.swift; sourceTree = "<group>"; };
 		438AC2D020F083D2009BA298 /* TDLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDLabel.swift; sourceTree = "<group>"; };
+		43A7D47220FEE99A008A77E1 /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol.swift; sourceTree = "<group>"; };
 		43B179BE20FA9E6F006E1565 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		43B179C020FA9FDC006E1565 /* TDHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDHeaderView.swift; sourceTree = "<group>"; };
 		43B179C320FAA75C006E1565 /* optionset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = optionset.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				43D04F5820EE7BCD00E25358 /* extension.swift */,
 				43B179C320FAA75C006E1565 /* optionset.swift */,
+				43A7D47220FEE99A008A77E1 /* protocol.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				438AC2D120F083D2009BA298 /* TDLabel.swift in Sources */,
 				43DBD98620EB63170067C66D /* AppDelegate.swift in Sources */,
 				43B179C420FAA75C006E1565 /* optionset.swift in Sources */,
+				43A7D47320FEE99A008A77E1 /* protocol.swift in Sources */,
 				43B179BF20FA9E6F006E1565 /* ListController.swift in Sources */,
 				43B179C120FA9FDC006E1565 /* TDHeaderView.swift in Sources */,
 			);
