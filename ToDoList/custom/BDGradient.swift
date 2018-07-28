@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TDGradient:UIView {
+class BDGradient:UIView {
     
 //    var colors:[CGColor] = [
 //        UIColor.init(red: 100, green: 228, blue: 255).cgColor,
@@ -20,10 +20,11 @@ class TDGradient:UIView {
         UIColor.blueOne.cgColor
     ]
     
-    override init(frame: CGRect) {
+    override init(frame: CGRect = .zero) {
         super.init(frame: frame)
-        
-        self.translatesAutoresizingMaskIntoConstraints = false
+        if frame == .zero {
+            translatesAutoresizingMaskIntoConstraints = false
+        }
         if let layer = self.layer as? CAGradientLayer {
             layer.colors = self.hexColors
             layer.locations = [0.0, 1.2]

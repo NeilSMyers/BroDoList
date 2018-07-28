@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TDLabel:UILabel {
+class BDLabel:UILabel {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

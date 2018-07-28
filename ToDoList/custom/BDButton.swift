@@ -8,18 +8,20 @@
 
 import UIKit
 
-class TDButton: UIButton {
+class BDButton: UIButton {
     
     var title:String!
     var type:ButtonOptions!
+    var radius:CGFloat!
     
-    init(title:String = "button text", frame:CGRect = .zero, type:ButtonOptions = .roundedText) {
+    init(title:String = "button text", frame:CGRect = .zero, type:ButtonOptions = .roundedText, radius:CGFloat = 20) {
         super.init(frame: frame)
         if frame == .zero {
             self.translatesAutoresizingMaskIntoConstraints = false
         }
         self.title = title
         self.type = type
+        self.radius = radius
         self.phaseTwo()
     }
     
@@ -45,7 +47,7 @@ class TDButton: UIButton {
     }
     
     func roundedText() {
-        self.layer.cornerRadius = 25
+        self.layer.cornerRadius = self.radius
     }
     
     required init?(coder aDecoder: NSCoder) {

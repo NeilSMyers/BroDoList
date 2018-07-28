@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TDHeaderDelegate {
+protocol BDHeaderDelegate {
     func addItem()
 }

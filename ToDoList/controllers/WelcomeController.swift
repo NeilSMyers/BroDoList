@@ -11,23 +11,23 @@ import UIKit
 class WelcomeController: UIViewController {
 
     let bg:UIView = {
-        let view = TDGradient()
+        let view = BDGradient()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 24
         return view
     }()
     
-    let titleLabel = TDLabel(title: "GET IT DONE", size: 24, textAlign: .center)
+    let titleLabel = BDLabel(title: "BROOOOO", size: 24, textAlign: .center)
     
     let infoLabel:UILabel = {
-        let label = TDLabel(title: "WELCOME, THIS IS A TO DO LIST.\nA REALLY DOPE TO DO LIST.", size: 15, textAlign: .center)
+        let label = BDLabel(title: "READY TO LIKE, GET STUFF DONE OR WHATEVER?", size: 15, textAlign: .center)
         label.numberOfLines = 2
         return label
     }()
     
-    let nextButton:UIButton = TDButton(title: "START WINNING", type: .roundedText)
+    let nextButton:UIButton = BDButton(title: "FUGG IT UP, DUDE", type: .roundedText)
     
-    let copyright = TDLabel(title: "© 2018 | WatchFoxWare", color: .grayOne, size: 14, textAlign: .center)
+    let copyright = BDLabel(title: "© 2018 | WatchFoxWare", color: .grayOne, size: 14, textAlign: .center)
     
     @objc func handleNext() {
         UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 1, options: .curveEaseIn, animations: {

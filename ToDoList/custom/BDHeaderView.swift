@@ -8,13 +8,13 @@
 
 import UIKit
 
-class TDHeaderView:UIView {
+class BDHeaderView:UIView {
     
-    let bg = TDGradient()
-    let titleLabel = TDLabel(size: 14)
-    let subTitleLabel = TDLabel(size: 24)
-    let addButton = TDButton(title: "+", type: .squareIcon)
-    var delegate:TDHeaderDelegate?
+    let bg = BDGradient()
+    let titleLabel = BDLabel(size: 14)
+    let subTitleLabel = BDLabel(size: 24)
+    let addButton = BDButton(title: "+", type: .squareIcon)
+    var delegate:BDHeaderDelegate?
     
     init(frame: CGRect = .zero, title:String = "header title", subtitle:String = "header subtitle") {
         super.init(frame: frame)
