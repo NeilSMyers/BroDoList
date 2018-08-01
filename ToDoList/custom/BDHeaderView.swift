@@ -14,7 +14,12 @@ class BDHeaderView:UIView {
     let titleLabel = BDLabel(size: 14)
     let subTitleLabel = BDLabel(size: 24)
     let addButton = BDButton(title: "+", type: .squareIcon)
+    let menuButton = BDButton(title: "menu", type: .squareIcon)
     var delegate:BDHeaderDelegate?
+    
+    @objc func handleMenu() {
+        print("you clicked the menu button")
+    }
     
     init(frame: CGRect = .zero, title:String = "header title", subtitle:String = "header subtitle") {
         super.init(frame: frame)
@@ -50,7 +55,14 @@ class BDHeaderView:UIView {
         addButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
         addButton.widthAnchor.constraint(equalTo: addButton.heightAnchor, multiplier: 1).isActive = true
         
+        addSubview(menuButton)
+        menuButton.bottomAnchor.constraint(equalTo: subTitleLabel.topAnchor).isActive = true
+        menuButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -28).isActive = true
+        menuButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        menuButton.widthAnchor.constraint(equalToConstant: 75).isActive = true
+        
         addButton.addTarget(self, action: #selector(self.handleAddButton), for: .touchUpInside)
+        menuButton.addTarget(self, action: #selector(self.handleMenu), for: .touchUpInside)
     }
     
     @objc func handleAddButton() {

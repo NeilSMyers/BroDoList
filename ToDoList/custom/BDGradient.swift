@@ -27,7 +27,7 @@ class BDGradient:UIView {
         }
         if let layer = self.layer as? CAGradientLayer {
             layer.colors = self.hexColors
-            layer.locations = [0.0, 1.2]
+            layer.locations = [0.0, 1.2] 
         }
         
         
