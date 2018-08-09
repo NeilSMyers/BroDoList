@@ -9,5 +9,9 @@
 import Foundation
 
 protocol BDHeaderDelegate {
-    func addItem()
+    func openAddItemPopup()
+}
+
+protocol BDNewItemDelegate {
+    func addItemToList(text:String)
 }

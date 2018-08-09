@@ -13,13 +13,16 @@ class BDNewItemPopup:BDGradient {
     let cancel = BDButton(title: " negatory ", type: .roundedText, radius: 5)
     let add = BDButton(title: " pitted ", type: .roundedText, radius: 5)
     let textField = BDTextField(placeholder: "fugg it up dugg", inset: 6)
+    var delegate:BDNewItemDelegate?
     
     @objc func handleCancel() {
-        print("handle cancel")
+        textField.resignFirstResponder()
     }
     
     @objc func handleAdd() {
-        print("handle add")
+        if let delegate = self.delegate, let textFieldText = self.textField.text {
+            delegate.addItemToList(text: textFieldText)
+        }
     }
     
     override init(frame: CGRect) {

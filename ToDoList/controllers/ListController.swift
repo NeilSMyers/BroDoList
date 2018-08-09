@@ -8,16 +8,20 @@
 
 import UIKit
 
-class ListController: UIViewController, BDHeaderDelegate {
+class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
     
-    func addItem() {
-        print("trying to add item from header")
+    func openAddItemPopup() {
+        print("opening the popup ting")
+    }
+    
+    func addItemToList(text:String) {
+        print("imma add item: \(text)")
     }
     
     let header = BDHeaderView(title: "Stuff to like...do", subtitle: "4 left")
     let popup = BDNewItemPopup()
     
-    var keyboardHeight:CGFloat = 0
+    var keyboardHeight:CGFloat = 250
     
     override func viewDidAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
@@ -26,7 +30,7 @@ class ListController: UIViewController, BDHeaderDelegate {
     @objc func keyboardWillShow(notification: Notification) {
         let keyboardSize = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         self.keyboardHeight = keyboardSize.height
-        print(self.keyboardHeight)
+        
     }
     
     override func viewDidLoad() {
@@ -45,6 +49,18 @@ class ListController: UIViewController, BDHeaderDelegate {
         popup.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         popup.heightAnchor.constraint(equalToConstant: 90).isActive = true
         
+        popup.textField.delegate = self
+        popup.delegate = self
+        
         header.delegate = self
+    }
+}
+
+extension ListController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        popup.animateView(transform: CGAffineTransform(translationX: 0, y: -keyboardHeight), duration: 0.5)
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        popup.animateView(transform: CGAffineTransform(translationX: 0, y: 0), duration: 0.6)
     }
 }
