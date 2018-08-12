@@ -12,7 +12,6 @@ class WelcomeController: UIViewController {
 
     let bg:UIView = {
         let view = BDGradient()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 24
         return view
     }()
