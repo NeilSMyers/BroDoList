@@ -31,6 +31,8 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
     
     let CELL_ID = "cell_id"
     
+    var listData = ["first item", "this thing", "other thing"]
+    
     var keyboardHeight:CGFloat = 250
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,12 +95,15 @@ extension ListController: UITextFieldDelegate {
 
 extension ListController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.listData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath)
-        cell.textLabel?.text = "heyooo"
+        cell.textLabel?.text = self.listData[indexPath.row]
+        cell.selectionStyle = .none
+        cell.backgroundColor = .white
+        cell.textLabel?.textColor = .grayZero
         return cell
     }
     
