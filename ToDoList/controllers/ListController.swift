@@ -1,6 +1,6 @@
 //
 //  ListController.swift
-//  ToDoList
+//  BroDoList
 //
 //  Created by Neil Myers on 7/14/18.
 //  Copyright © 2018 WatchFoxWare. All rights reserved.
@@ -18,7 +18,7 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
         print("imma add item: \(text)")
     }
     
-    let header = BDHeaderView(title: "Stuff to like...do", subtitle: "4 left")
+    let header = BDHeaderView(title: "Stuff to like...do", subtitle: "X left")
     let popup = BDNewItemPopup()
     
     let bg:UIView = {
@@ -31,7 +31,7 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
     
     let CELL_ID = "cell_id"
     
-    var listData = ["first item", "this thing", "other thing"]
+    var listData:[ToDo] = [ToDo]()
     
     var keyboardHeight:CGFloat = 250
     
@@ -47,6 +47,13 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        listData = [
+            ToDo(id: 0, title: "first item", status: false),
+            ToDo(id: 1, title: "this thing", status: false),
+            ToDo(id: 2, title: "nutha one", status: false)
+        ]
+        
         view.backgroundColor = .white
         
         view.addSubview(header)
@@ -80,7 +87,7 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
         
         listTable.delegate = self
         listTable.dataSource = self
-        listTable.register(UITableViewCell.self, forCellReuseIdentifier: CELL_ID)
+        listTable.register(BDListCell.self, forCellReuseIdentifier: CELL_ID)
     }
 }
 
@@ -99,11 +106,8 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath)
-        cell.textLabel?.text = self.listData[indexPath.row]
-        cell.selectionStyle = .none
-        cell.backgroundColor = .white
-        cell.textLabel?.textColor = .grayZero
+        let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! BDListCell
+        cell.toDo = self.listData[indexPath.row]
         return cell
     }
     

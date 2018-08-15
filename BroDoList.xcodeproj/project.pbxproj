@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		43224BBA2120C1D000E5B8A8 /* BDTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43224BB92120C1D000E5B8A8 /* BDTableView.swift */; };
 		4343F47A20F9B1F400E49D90 /* BDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4343F47920F9B1F400E49D90 /* BDButton.swift */; };
+		436F101F2124D056006C2063 /* BDListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F101E2124D056006C2063 /* BDListCell.swift */; };
+		436F10222124D1D0006C2063 /* toDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F10212124D1D0006C2063 /* toDo.swift */; };
 		438AC2D120F083D2009BA298 /* BDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438AC2D020F083D2009BA298 /* BDLabel.swift */; };
 		43A7D47320FEE99A008A77E1 /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A7D47220FEE99A008A77E1 /* protocol.swift */; };
 		43B179BF20FA9E6F006E1565 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B179BE20FA9E6F006E1565 /* ListController.swift */; };
@@ -31,6 +33,8 @@
 /* Begin PBXFileReference section */
 		43224BB92120C1D000E5B8A8 /* BDTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDTableView.swift; sourceTree = "<group>"; };
 		4343F47920F9B1F400E49D90 /* BDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDButton.swift; sourceTree = "<group>"; };
+		436F101E2124D056006C2063 /* BDListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDListCell.swift; sourceTree = "<group>"; };
+		436F10212124D1D0006C2063 /* toDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDo.swift; sourceTree = "<group>"; };
 		438AC2D020F083D2009BA298 /* BDLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDLabel.swift; sourceTree = "<group>"; };
 		43A7D47220FEE99A008A77E1 /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol.swift; sourceTree = "<group>"; };
 		43B179BE20FA9E6F006E1565 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		436F10202124D191006C2063 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				436F10212124D1D0006C2063 /* toDo.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		438AC2CF20F08372009BA298 /* custom */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +85,7 @@
 				43D9E2FB210C2D720091FD30 /* BDNewItemPopup.swift */,
 				43D9E2FD210C34A40091FD30 /* BDTextField.swift */,
 				43224BB92120C1D000E5B8A8 /* BDTableView.swift */,
+				436F101E2124D056006C2063 /* BDListCell.swift */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -116,6 +129,7 @@
 		43DBD98420EB63170067C66D /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				436F10202124D191006C2063 /* model */,
 				43DBD98520EB63170067C66D /* AppDelegate.swift */,
 				43E8028620F4654C0099AEA1 /* fonts */,
 				43D04F5720EE7BAC00E25358 /* extension */,
@@ -222,6 +236,8 @@
 				43DBD98620EB63170067C66D /* AppDelegate.swift in Sources */,
 				43B179C420FAA75C006E1565 /* optionset.swift in Sources */,
 				43A7D47320FEE99A008A77E1 /* protocol.swift in Sources */,
+				436F10222124D1D0006C2063 /* toDo.swift in Sources */,
+				436F101F2124D056006C2063 /* BDListCell.swift in Sources */,
 				43B179BF20FA9E6F006E1565 /* ListController.swift in Sources */,
 				43B179C120FA9FDC006E1565 /* BDHeaderView.swift in Sources */,
 				43224BBA2120C1D000E5B8A8 /* BDTableView.swift in Sources */,

@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  ToDoList
+//  WelcomeController.swift
+//  BroDoList
 //
 //  Created by Neil Myers on 7/3/18.
 //  Copyright © 2018 WatchFoxWare. All rights reserved.
