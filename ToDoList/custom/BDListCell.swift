@@ -10,11 +10,18 @@ import UIKit
 
 class BDListCell:UITableViewCell {
     
+    let textField = BDTextField(placeholder: "ToDo", radius: 6, inset: 12)
+    let view:UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     var toDo:ToDo? {
         didSet {
             if let toDo = toDo {
                 print(toDo.status)
-                self.textLabel?.text = toDo.title
+                self.textField.text = toDo.title
             }
         }
     }
@@ -23,9 +30,21 @@ class BDListCell:UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
-        backgroundColor = .white
-        textLabel?.textColor = .grayZero
+        backgroundColor = .clear
         
+        view.backgroundColor = .white
+        
+        addSubview(view)
+        view.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        view.topAnchor.constraint(equalTo: topAnchor, constant: 4).isActive = true
+        view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4).isActive = true
+        view.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        
+        view.addSubview(textField)
+        textField.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        textField.topAnchor.constraint(equalTo: topAnchor, constant: 6).isActive = true
+        textField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6).isActive = true
+        textField.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
