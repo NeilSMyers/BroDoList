@@ -30,7 +30,7 @@ class BDNewItemPopup:BDGradient {
         
         let inset:CGFloat = 12
         
-        self.layer.cornerRadius = 14
+        self.layer.cornerRadius = 16
         
         addSubview(cancel)
         cancel.leftAnchor.constraint(equalTo: leftAnchor, constant: inset).isActive = true

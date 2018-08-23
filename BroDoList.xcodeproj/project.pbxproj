@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		43224BBA2120C1D000E5B8A8 /* BDTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43224BB92120C1D000E5B8A8 /* BDTableView.swift */; };
 		4343F47A20F9B1F400E49D90 /* BDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4343F47920F9B1F400E49D90 /* BDButton.swift */; };
+		4348B050212F702C0034A3B2 /* BDCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4348B04F212F702C0034A3B2 /* BDCheckBox.swift */; };
 		436F101F2124D056006C2063 /* BDListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F101E2124D056006C2063 /* BDListCell.swift */; };
 		436F10222124D1D0006C2063 /* toDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F10212124D1D0006C2063 /* toDo.swift */; };
 		438AC2D120F083D2009BA298 /* BDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438AC2D020F083D2009BA298 /* BDLabel.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		43224BB92120C1D000E5B8A8 /* BDTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDTableView.swift; sourceTree = "<group>"; };
 		4343F47920F9B1F400E49D90 /* BDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDButton.swift; sourceTree = "<group>"; };
+		4348B04F212F702C0034A3B2 /* BDCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDCheckBox.swift; sourceTree = "<group>"; };
 		436F101E2124D056006C2063 /* BDListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDListCell.swift; sourceTree = "<group>"; };
 		436F10212124D1D0006C2063 /* toDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDo.swift; sourceTree = "<group>"; };
 		438AC2D020F083D2009BA298 /* BDLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDLabel.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				43D9E2FD210C34A40091FD30 /* BDTextField.swift */,
 				43224BB92120C1D000E5B8A8 /* BDTableView.swift */,
 				436F101E2124D056006C2063 /* BDListCell.swift */,
+				4348B04F212F702C0034A3B2 /* BDCheckBox.swift */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				436F10222124D1D0006C2063 /* toDo.swift in Sources */,
 				436F101F2124D056006C2063 /* BDListCell.swift in Sources */,
 				43B179BF20FA9E6F006E1565 /* ListController.swift in Sources */,
+				4348B050212F702C0034A3B2 /* BDCheckBox.swift in Sources */,
 				43B179C120FA9FDC006E1565 /* BDHeaderView.swift in Sources */,
 				43224BBA2120C1D000E5B8A8 /* BDTableView.swift in Sources */,
 			);
