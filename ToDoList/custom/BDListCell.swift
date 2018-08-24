@@ -22,8 +22,8 @@ class BDListCell:UITableViewCell {
     var toDo:ToDo? {
         didSet {
             if let toDo = toDo {
-                print(toDo.status)
-                self.textField.text = toDo.title
+                box.toggled = toDo.status
+                textField.text = toDo.title
             }
         }
     }

@@ -26,8 +26,6 @@ class BDButton: UIButton {
     }
     
     func phaseTwo() {
-        self.setTitle(self.title, for: .normal)
-        self.setTitleColor(.grayZero, for: .normal)
         self.backgroundColor = .white
         if let titleLabel = self.titleLabel {
             titleLabel.font = UIFont(name: "Raleway-v4020-Regular", size: 16)
@@ -43,11 +41,13 @@ class BDButton: UIButton {
     }
     
     func squareIcon() {
-        
+        self.setImage(UIImage(named: "add-icon"), for: .normal)
     }
     
     func roundedText() {
         self.layer.cornerRadius = self.radius
+        self.setTitle(self.title, for: .normal)
+        self.setTitleColor(.grayZero, for: .normal)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -13,7 +13,7 @@ class BDHeaderView:UIView {
     let bg = BDGradient()
     let titleLabel = BDLabel(size: 14)
     let subTitleLabel = BDLabel(size: 24)
-    let addButton = BDButton(title: "+", type: .squareIcon)
+    let addButton = BDButton(type: .squareIcon)
     let menuButton = BDButton(title: "menu", type: .squareIcon)
     var delegate:BDHeaderDelegate?
     
