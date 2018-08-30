@@ -51,7 +51,7 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
         super.viewDidLoad()
         
         listData = [
-            ToDo(id: 0, title: "first item", status: false),
+            ToDo(id: 0, title: "first item", status: true),
             ToDo(id: 1, title: "this thing", status: false),
             ToDo(id: 2, title: "nutha one", status: false)
         ]
@@ -143,7 +143,16 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! BDListCell
-        cell.toDo = self.listData[indexPath.row]
+        
+        var itemsForSection:[ToDo] = []
+        self.listData.forEach { (toDo) in
+            if indexPath.section == 0 && !toDo.status {
+                itemsForSection.append(toDo)
+            } else if (indexPath.section == 1 && toDo.status) {
+                itemsForSection.append(toDo)
+            }
+        }
+        cell.toDo = itemsForSection[indexPath.row]
         return cell
     }
     
