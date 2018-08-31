@@ -14,7 +14,7 @@ class BDHeaderView:UIView {
     let titleLabel = BDLabel(size: 14)
     let subTitleLabel = BDLabel(size: 24)
     let addButton = BDButton(type: .squareIcon)
-    let menuButton = BDButton(title: "menu", type: .squareIcon)
+    let menuButton = BDButton(title: "menu", type: .roundedText, radius: 5)
     var delegate:BDHeaderDelegate?
     
     @objc func handleMenu() {
@@ -42,22 +42,22 @@ class BDHeaderView:UIView {
         addSubview(subTitleLabel)
         
         titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 12).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 28).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 36).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
-        subTitleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 28).isActive = true
+        subTitleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 36).isActive = true
         subTitleLabel.rightAnchor.constraint(equalTo: centerXAnchor, constant: 50).isActive = true
         
         addSubview(addButton)
         addButton.bottomAnchor.constraint(equalTo: subTitleLabel.bottomAnchor).isActive = true
-        addButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -28).isActive = true
+        addButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -50).isActive = true
         addButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
         addButton.widthAnchor.constraint(equalTo: addButton.heightAnchor, multiplier: 1).isActive = true
         
         addSubview(menuButton)
         menuButton.bottomAnchor.constraint(equalTo: subTitleLabel.topAnchor).isActive = true
-        menuButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -28).isActive = true
+        menuButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -50).isActive = true
         menuButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
         menuButton.widthAnchor.constraint(equalToConstant: 75).isActive = true
         

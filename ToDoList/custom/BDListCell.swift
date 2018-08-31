@@ -23,6 +23,7 @@ class BDListCell:UITableViewCell {
         didSet {
             if let toDo = toDo {
                 box.toggled = toDo.status
+                box.id = toDo.id
                 textField.text = toDo.title
             }
         }

@@ -91,6 +91,10 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
         listTable.dataSource = self
         listTable.register(BDListCell.self, forCellReuseIdentifier: CELL_ID)
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 extension ListController: UITextFieldDelegate {
@@ -102,7 +106,20 @@ extension ListController: UITextFieldDelegate {
     }
 }
 
-extension ListController: UITableViewDelegate, UITableViewDataSource {
+extension ListController: UITableViewDelegate, UITableViewDataSource, BDListCellDelegate {
+    
+    func toggleToDo(id:Int, status: Bool) {
+        let newListData = self.listData.map { (toDo) -> ToDo in
+            if toDo.id == id {
+                var newToDo = toDo
+                newToDo.status = status
+                return newToDo
+            }
+            return toDo
+        }
+        self.listData = newListData
+        self.listTable.reloadData()
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -143,7 +160,7 @@ extension ListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! BDListCell
-        
+        cell.box.delegate = self
         var itemsForSection:[ToDo] = []
         self.listData.forEach { (toDo) in
             if indexPath.section == 0 && !toDo.status {
