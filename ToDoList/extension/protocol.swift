@@ -17,5 +17,6 @@ protocol BDNewItemDelegate {
 }
 
 protocol BDListCellDelegate {
-    func toggleToDo(id: Int, status:Bool)
+    func toggleToDo(toDo:ToDo)
 }
+

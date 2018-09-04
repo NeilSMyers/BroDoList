@@ -10,6 +10,15 @@ import UIKit
 
 class BDListCell:UITableViewCell {
     
+    var delegate:BDListCellDelegate?
+    
+    @objc func toggleStatus() {
+        if let delegate = self.delegate, let toDo = self.toDo {
+            let newToDo = ToDo(id: toDo.id, title: textField.text!, status: !toDo.status)
+            delegate.toggleToDo(toDo: newToDo)
+        }
+    }
+    
     let textField = BDTextField(placeholder: "ToDo", radius: 6, inset: 12)
     let view:UIView = {
         let view = UIView()
@@ -31,6 +40,8 @@ class BDListCell:UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        box.addTarget(self, action: #selector(self.toggleStatus), for: .touchUpInside)
         
         selectionStyle = .none
         backgroundColor = .clear
