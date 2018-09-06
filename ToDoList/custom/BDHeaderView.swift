@@ -12,7 +12,7 @@ class BDHeaderView:UIView {
     
     let bg = BDGradient()
     let titleLabel = BDLabel(size: 14)
-    let subTitleLabel = BDLabel(size: 24)
+    let subtitleLabel = BDLabel(size: 24)
     let addButton = BDButton(type: .squareIcon)
     let menuButton = BDButton(title: "menu", type: .roundedText, radius: 5)
     var delegate:BDHeaderDelegate?
@@ -27,8 +27,14 @@ class BDHeaderView:UIView {
             translatesAutoresizingMaskIntoConstraints = false
         }
         self.titleLabel.text = title
-        self.subTitleLabel.text = subtitle
+        self.subtitleLabel.text = subtitle
         setupLayout()
+    }
+    
+    var itemsLeft:Int = 0 {
+        didSet {
+            self.subtitleLabel.text = "\(itemsLeft) Left"
+        }
     }
     
     func setupLayout() {
@@ -39,24 +45,24 @@ class BDHeaderView:UIView {
         bg.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
         addSubview(titleLabel)
-        addSubview(subTitleLabel)
+        addSubview(subtitleLabel)
         
         titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 12).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 36).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
-        subTitleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 36).isActive = true
-        subTitleLabel.rightAnchor.constraint(equalTo: centerXAnchor, constant: 50).isActive = true
+        subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
+        subtitleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 36).isActive = true
+        subtitleLabel.rightAnchor.constraint(equalTo: centerXAnchor, constant: 50).isActive = true
         
         addSubview(addButton)
-        addButton.bottomAnchor.constraint(equalTo: subTitleLabel.bottomAnchor).isActive = true
+        addButton.bottomAnchor.constraint(equalTo: subtitleLabel.bottomAnchor).isActive = true
         addButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -50).isActive = true
         addButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
         addButton.widthAnchor.constraint(equalTo: addButton.heightAnchor, multiplier: 1).isActive = true
         
         addSubview(menuButton)
-        menuButton.bottomAnchor.constraint(equalTo: subTitleLabel.topAnchor).isActive = true
+        menuButton.bottomAnchor.constraint(equalTo: subtitleLabel.topAnchor).isActive = true
         menuButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -50).isActive = true
         menuButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
         menuButton.widthAnchor.constraint(equalToConstant: 75).isActive = true

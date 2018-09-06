@@ -18,7 +18,7 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
         print("imma add item: \(text)")
     }
     
-    let header = BDHeaderView(title: "Stuff to like...do", subtitle: "X left")
+    let header = BDHeaderView(title: "Stuff to like...do", subtitle: "X Left")
     let popup = BDNewItemPopup()
     
     let tbInset:CGFloat = 16
@@ -44,7 +44,13 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
     @objc func keyboardWillShow(notification: Notification) {
         let keyboardSize = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         self.keyboardHeight = keyboardSize.height
-        
+    }
+    
+    func updateHeaderItemsLeft() {
+        header.itemsLeft = 0
+        self.listData.forEach { (toDo) in
+            if !toDo.status { header.itemsLeft += 1 }
+        }
     }
     
     override func viewDidLoad() {
@@ -55,6 +61,8 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
             ToDo(id: 1, title: "this thing", status: false),
             ToDo(id: 2, title: "nutha one", status: false)
         ]
+        
+        self.updateHeaderItemsLeft()
         
         view.backgroundColor = .white
         
@@ -120,6 +128,7 @@ extension ListController: UITableViewDelegate, UITableViewDataSource, BDListCell
         }
         self.listData = newListData
         self.listTable.reloadData()
+        self.updateHeaderItemsLeft()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
