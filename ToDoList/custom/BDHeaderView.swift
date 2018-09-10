@@ -33,7 +33,7 @@ class BDHeaderView:UIView {
     
     var itemsLeft:Int = 0 {
         didSet {
-            self.subtitleLabel.text = "\(itemsLeft) Left"
+            self.subtitleLabel.text = "\(itemsLeft) More"
         }
     }
     

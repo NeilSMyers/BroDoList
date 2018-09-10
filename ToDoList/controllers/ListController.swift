@@ -10,8 +10,15 @@ import UIKit
 
 class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
     
+    var popupLocation:CGFloat = 70
+    
     func openAddItemPopup() {
-        print("opening the popup ting")
+        popup.animateView(transform: CGAffineTransform(translationX: 0, y: popupLocation), duration: 0.3)
+        if popupLocation == 70 {
+            popupLocation = 0
+        } else {
+            popupLocation = 70
+        }
     }
     
     func addItemToList(text:String) {
@@ -85,10 +92,12 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
         listTable.bottomAnchor.constraint(equalTo: bg.bottomAnchor, constant: -tbInset).isActive = true
         
         view.addSubview(popup)
-        popup.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20).isActive = true
+        popup.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         popup.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         popup.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
         popup.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        
+        openAddItemPopup()
         
         popup.textField.delegate = self
         popup.delegate = self
