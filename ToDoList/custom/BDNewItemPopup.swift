@@ -17,6 +17,18 @@ class BDNewItemPopup:BDGradient {
     
     @objc func handleCancel() {
         textField.resignFirstResponder()
+        animatePopup()
+    }
+    
+    var popupLocation:CGFloat = 90
+    
+    @objc func animatePopup() {
+        self.animateView(transform: CGAffineTransform(translationX: 0, y: popupLocation), duration: 0.3)
+        if popupLocation == 90 {
+            popupLocation = 0
+        } else {
+            popupLocation = 90
+        }
     }
     
     @objc func handleAdd() {
@@ -27,6 +39,8 @@ class BDNewItemPopup:BDGradient {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.animatePopup)))
         
         let inset:CGFloat = 12
         
