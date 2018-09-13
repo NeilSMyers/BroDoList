@@ -14,14 +14,32 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
         popup.animatePopup()
     }
     
+    func notInList(text:String) -> Bool {
+        var isNotInList = true
+        self.listData.forEach { (toDo) in
+            if toDo.title == text {
+                isNotInList = false
+            }
+        }
+        return isNotInList
+    }
+    
     func addItemToList(text:String) {
-        print("imma add item: \(text)")
+        if (notInList(text:text)) {
+            let newItem = ToDo(id: self.listData.count, title: text, status: false)
+            self.listData.append(newItem)
+            self.listTable.reloadData()
+            self.updateHeaderItemsLeft()
+            self.popup.textField.text = ""
+            self.popup.animatePopup()
+        }
     }
     
     let header = BDHeaderView(title: "Stuff to like...do", subtitle: "X Left")
     let popup = BDNewItemPopup()
     
     let tbInset:CGFloat = 16
+    var bgBottom:NSLayoutConstraint!
     
     lazy var bg:UIView = {
         let view = BDGradient()
@@ -76,7 +94,8 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
         bg.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
         bg.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 10).isActive = true
         bg.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        bg.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120).isActive = true
+        bgBottom = bg.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120)
+        bgBottom.isActive = true
         
         view.addSubview(listTable)
         listTable.leftAnchor.constraint(equalTo: bg.leftAnchor, constant: tbInset).isActive = true
@@ -109,9 +128,17 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
 
 extension ListController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.bgBottom.constant = -keyboardHeight - 100
+        UIView.animate(withDuration: 0.35) {
+            self.view.layoutIfNeeded()
+        }
         popup.animateView(transform: CGAffineTransform(translationX: 0, y: -keyboardHeight), duration: 0.5)
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
+        self.bgBottom.constant = -100
+        UIView.animate(withDuration: 0.35) {
+            self.view.layoutIfNeeded()
+        }
         popup.animateView(transform: CGAffineTransform(translationX: 0, y: 0), duration: 0.6)
     }
 }
@@ -173,6 +200,7 @@ extension ListController: UITableViewDelegate, UITableViewDataSource, BDListCell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CELL_ID, for: indexPath) as! BDListCell
         cell.delegate = self
+        cell.textField.delegate = self
         var itemsForSection:[ToDo] = []
         self.listData.forEach { (toDo) in
             if indexPath.section == 0 && !toDo.status {

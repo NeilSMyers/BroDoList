@@ -23,6 +23,7 @@ class BDNewItemPopup:BDGradient {
     var popupLocation:CGFloat = 90
     
     @objc func animatePopup() {
+        textField.resignFirstResponder()
         self.animateView(transform: CGAffineTransform(translationX: 0, y: popupLocation), duration: 0.3)
         if popupLocation == 90 {
             popupLocation = 0
