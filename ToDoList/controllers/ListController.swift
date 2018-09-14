@@ -74,11 +74,7 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        listData = [
-            ToDo(id: 0, title: "first item", status: true),
-            ToDo(id: 1, title: "this thing", status: false),
-            ToDo(id: 2, title: "nutha one", status: false)
-        ]
+        listData = []
         
         self.updateHeaderItemsLeft()
         
@@ -127,19 +123,31 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
 }
 
 extension ListController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.bgBottom.constant = -keyboardHeight - 100
+        
+        var heightToAnimate = -keyboardHeight - 14
+  
+        if textField == popup.textField {
+            popup.animateView(transform: CGAffineTransform(translationX: 0, y: -keyboardHeight), duration: 0.5)
+            heightToAnimate -= 86
+        }
+        self.bgBottom.constant = heightToAnimate
         UIView.animate(withDuration: 0.35) {
             self.view.layoutIfNeeded()
         }
-        popup.animateView(transform: CGAffineTransform(translationX: 0, y: -keyboardHeight), duration: 0.5)
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.bgBottom.constant = -100
         UIView.animate(withDuration: 0.35) {
             self.view.layoutIfNeeded()
         }
-        popup.animateView(transform: CGAffineTransform(translationX: 0, y: 0), duration: 0.6)
+        if textField == popup.textField {
+            popup.animateView(transform: CGAffineTransform(translationX: 0, y: 0), duration: 0.6)
+        }
     }
 }
 
