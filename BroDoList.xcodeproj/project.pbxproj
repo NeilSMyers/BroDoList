@@ -13,6 +13,7 @@
 		436F101F2124D056006C2063 /* BDListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F101E2124D056006C2063 /* BDListCell.swift */; };
 		436F10222124D1D0006C2063 /* toDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F10212124D1D0006C2063 /* toDo.swift */; };
 		438AC2D120F083D2009BA298 /* BDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438AC2D020F083D2009BA298 /* BDLabel.swift */; };
+		4395847F215065D20089FBD1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4395847E215065D20089FBD1 /* CoreDataManager.swift */; };
 		43A7D47320FEE99A008A77E1 /* protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A7D47220FEE99A008A77E1 /* protocol.swift */; };
 		43B179BF20FA9E6F006E1565 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B179BE20FA9E6F006E1565 /* ListController.swift */; };
 		43B179C120FA9FDC006E1565 /* BDHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B179C020FA9FDC006E1565 /* BDHeaderView.swift */; };
@@ -38,6 +39,7 @@
 		436F101E2124D056006C2063 /* BDListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDListCell.swift; sourceTree = "<group>"; };
 		436F10212124D1D0006C2063 /* toDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDo.swift; sourceTree = "<group>"; };
 		438AC2D020F083D2009BA298 /* BDLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDLabel.swift; sourceTree = "<group>"; };
+		4395847E215065D20089FBD1 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		43A7D47220FEE99A008A77E1 /* protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol.swift; sourceTree = "<group>"; };
 		43B179BE20FA9E6F006E1565 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
 		43B179C020FA9FDC006E1565 /* BDHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BDHeaderView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				43DBD99120EB63180067C66D /* LaunchScreen.storyboard */,
 				43DBD99420EB63180067C66D /* Info.plist */,
 				43DBD98C20EB63170067C66D /* BroDoList.xcdatamodeld */,
+				4395847E215065D20089FBD1 /* CoreDataManager.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				43D04F5620EE722300E25358 /* BDGradient.swift in Sources */,
 				43DBD98E20EB63170067C66D /* BroDoList.xcdatamodeld in Sources */,
 				43D04F5920EE7BCD00E25358 /* extension.swift in Sources */,
+				4395847F215065D20089FBD1 /* CoreDataManager.swift in Sources */,
 				438AC2D120F083D2009BA298 /* BDLabel.swift in Sources */,
 				43D9E2FC210C2D720091FD30 /* BDNewItemPopup.swift in Sources */,
 				43DBD98620EB63170067C66D /* AppDelegate.swift in Sources */,

@@ -53,7 +53,7 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
     
     var listData:[ToDo] = [ToDo]()
     
-    var keyboardHeight:CGFloat = 250
+    var keyboardHeight:CGFloat = 333
     
     override func viewDidAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
@@ -129,20 +129,20 @@ extension ListController: UITextFieldDelegate {
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        var heightToAnimate = -keyboardHeight - 14
+        var heightToAnimate = -keyboardHeight - 20
   
         if textField == popup.textField {
             popup.animateView(transform: CGAffineTransform(translationX: 0, y: -keyboardHeight), duration: 0.5)
-            heightToAnimate -= 86
+            heightToAnimate -= 80
         }
         self.bgBottom.constant = heightToAnimate
-        UIView.animate(withDuration: 0.35) {
+        UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.bgBottom.constant = -100
-        UIView.animate(withDuration: 0.35) {
+        UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
         if textField == popup.textField {
