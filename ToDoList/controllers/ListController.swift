@@ -26,8 +26,8 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
     
     func addItemToList(text:String) {
         if (notInList(text:text)) {
-            let newItem = ToDo(id: self.listData.count, title: text, status: false)
-            self.listData.append(newItem)
+//            let newItem = ToDo(id: self.listData.count, title: text, status: false)
+//            self.listData.append(newItem)
             self.listTable.reloadData()
             self.updateHeaderItemsLeft()
             self.popup.textField.text = ""
@@ -74,7 +74,7 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        listData = []
+        listData = CoreDataManager.shared.fetchToDos()
         
         self.updateHeaderItemsLeft()
         

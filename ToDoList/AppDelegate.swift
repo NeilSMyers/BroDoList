@@ -23,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
         
         let wc = WelcomeController()
+        
+        let listData = CoreDataManager.shared.fetchToDos()
+        print("this is our listData:",listData)
       
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
