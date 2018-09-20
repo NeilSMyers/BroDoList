@@ -153,17 +153,17 @@ extension ListController: UITextFieldDelegate {
 
 extension ListController: UITableViewDelegate, UITableViewDataSource, BDListCellDelegate {
     
-    func toggleToDo(toDo updatedToDo:ToDo) {
-        let newListData = self.listData.map { (oldToDo) -> ToDo in
-            if oldToDo.id == updatedToDo.id {
-                var newToDo = oldToDo
-                newToDo.status = updatedToDo.status
-                newToDo.title = updatedToDo.title
-                return newToDo
-            }
-            return oldToDo
-        }
-        self.listData = newListData
+    func toggleToDo() {
+//        let newListData = self.listData.map { (oldToDo) -> ToDo in
+//            if oldToDo.id == updatedToDo.id {
+//                var newToDo = oldToDo
+//                newToDo.status = updatedToDo.status
+//                newToDo.title = updatedToDo.title
+//                return newToDo
+//            }
+//            return oldToDo
+//        }
+        self.listData = CoreDataManager.shared.fetchToDos()
         self.listTable.reloadData()
         self.updateHeaderItemsLeft()
     }

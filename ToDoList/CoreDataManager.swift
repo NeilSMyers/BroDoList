@@ -22,7 +22,7 @@ struct CoreDataManager {
         return container
     }()
     
-    func createToDo() {
+    func createToDo(id: Double, title:String, status:Bool) {
         let context = persistentContainer.viewContext
         let toDo = NSEntityDescription.insertNewObject(forEntityName: "ToDo", into: context)
         
