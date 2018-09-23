@@ -120,6 +120,8 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    var toDoToUpdate:ToDo?
 }
 
 extension ListController: UITextFieldDelegate {
@@ -134,7 +136,9 @@ extension ListController: UITextFieldDelegate {
         if textField == popup.textField {
             popup.animateView(transform: CGAffineTransform(translationX: 0, y: -keyboardHeight), duration: 0.5)
             heightToAnimate -= 80
-        }
+        } else {
+            self.toDoToUpdate = CoreDataManager.shared.fetchToDo(title: textField.text!)
+        
         self.bgBottom.constant = heightToAnimate
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
@@ -147,6 +151,11 @@ extension ListController: UITextFieldDelegate {
         }
         if textField == popup.textField {
             popup.animateView(transform: CGAffineTransform(translationX: 0, y: 0), duration: 0.6)
+        } else {
+            if let toDoToUpdate = self.toDoToUpdate {
+                CoreDataManager.shared.deleteToDo(id: toDoToUpdate.id)
+                CoreDataManager.shared.createToDo(id: toDoToUpdate.id, title: textField.text!, status: toDoToUpdate.status)
+            }
         }
     }
 }
