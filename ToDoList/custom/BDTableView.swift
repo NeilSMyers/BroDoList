@@ -10,7 +10,7 @@ import UIKit
 
 class BDTableView:UITableView {
     
-    override init(frame: CGRect, style: UITableViewStyle) {
+    override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         checkIfAutoLayout()
         backgroundColor = .clear

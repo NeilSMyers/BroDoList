@@ -31,9 +31,9 @@ class BDButton: UIButton {
             titleLabel.font = UIFont(name: "Raleway-v4020-Regular", size: 16)
         }
         switch self.type {
-            case .roundedText:
+            case .roundedText?:
                 self.roundedText()
-            case .squareIcon:
+            case .squareIcon?:
                 self.squareIcon()
             default: break;
         }

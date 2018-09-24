@@ -28,6 +28,8 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
         if (notInList(text:text)) {
 //            let newItem = ToDo(id: self.listData.count, title: text, status: false)
 //            self.listData.append(newItem)
+            CoreDataManager.shared.createToDo(id: Double(self.listData.count), title: text, status: false)
+            self.listData = CoreDataManager.shared.fetchToDos()
             self.listTable.reloadData()
             self.updateHeaderItemsLeft()
             self.popup.textField.text = ""
@@ -56,11 +58,11 @@ class ListController: UIViewController, BDHeaderDelegate, BDNewItemDelegate {
     var keyboardHeight:CGFloat = 333
     
     override func viewDidAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
     }
     
     @objc func keyboardWillShow(notification: Notification) {
-        let keyboardSize = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
+        let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         self.keyboardHeight = keyboardSize.height
     }
     
@@ -142,6 +144,7 @@ extension ListController: UITextFieldDelegate {
         self.bgBottom.constant = heightToAnimate
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
+            }
         }
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -159,6 +162,7 @@ extension ListController: UITextFieldDelegate {
         }
     }
 }
+
 
 extension ListController: UITableViewDelegate, UITableViewDataSource, BDListCellDelegate {
     

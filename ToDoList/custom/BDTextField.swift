@@ -24,15 +24,15 @@ class BDTextField:UITextField {
     }
     
     override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, self.insets)
+        return bounds.inset(by: self.insets)
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, self.insets)
+        return bounds.inset(by: self.insets)
     }
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return UIEdgeInsetsInsetRect(bounds, self.insets)
+        return bounds.inset(by: self.insets)
     }
     
     required init?(coder aDecoder: NSCoder) {
